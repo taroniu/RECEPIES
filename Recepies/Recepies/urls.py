@@ -17,11 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from recepies_app.views import omlet, pasta, buter
+from recepies_app.views import dish_view
+from stations.views import bus_stations
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('omlet/', omlet),
-    path('pasta/', pasta),
-    path('buter/', buter)
+    path('<dish>/', dish_view, name='dish'),
+    path('', bus_stations),
 ]
