@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr><th>Name</th><th>Street</th><th>District</th></tr>
+    {% for i, j, k in page %}
+
+                 <!--ряд с ячейками заголовков-->
+            <tr><td>{{ i }}</td><td>{{ j }}</td><td>{{ k }}</td></tr> <!--ряд с ячейками тела таблицы-->
+
+
+    {% endfor %}
+</table>
+
+{% if page.has_next %}
+    <a href="?page={{ page.next_page_number }}">Вперед</a>
+{% endif %}
+{% if page.has_previous %}
+    <a href="?page={{ page.previous_page_number }}">Назад</a>
+{% endif %}
+
+</body>
+</html>

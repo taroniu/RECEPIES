@@ -22,6 +22,7 @@ from stations.views import bus_stations
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('busstations', bus_stations, name='bus'),
     path('<dish>/', dish_view, name='dish'),
-    path('', bus_stations),
+
 ]

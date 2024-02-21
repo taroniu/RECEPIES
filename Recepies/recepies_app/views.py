@@ -1,3 +1,4 @@
+from stations.views import bus_stations
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.shortcuts import render
@@ -23,9 +24,12 @@ DATA = {
 
 
 def dish_view(request, dish):
+    if dish == 'busstations':
+        return bus_stations(request)
+    else:
     # dish = request.GET['dish']
-    servings = int(request.GET.get('servings', 1))
-    context = {}
-    for i in DATA[dish]:
-        context[i] = DATA[dish][i] * servings
-    return HttpResponse(f'{i}: {context[i]}<br>' for i in context)
+        servings = int(request.GET.get('servings', 1))
+        context = {}
+        for i in DATA[dish]:
+            context[i] = DATA[dish][i] * servings
+        return HttpResponse(f'{i}: {context[i]}<br>' for i in context)
