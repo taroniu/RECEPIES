@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'recepies_app',
     'stations',
+    'phones',
+
 ]
 
 MIDDLEWARE = [
@@ -77,8 +79,10 @@ WSGI_APPLICATION = 'Recepies.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'template1',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
     }
 }
 
@@ -124,3 +128,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 BUS_STATION_CSV = 'busstops.csv'
+PHONES = 'phones.csv'
